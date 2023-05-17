@@ -10,7 +10,7 @@
     display: flex;
     input{
         width: 100%;
-        padding: 1rem 2rem;
+        padding: 1rem 0rem;
     }
 }
 p{
@@ -18,11 +18,11 @@ p{
 }
 .play-control{
     display: flex;
-   justify-content:space-between;
-   align-items: center;
-   padding: 1rem;
-   width: 30rem;
-   svg{
-    cursor: pointer;
-   }
+    justify-content:space-between;
+    align-items: center;
+    padding: 1rem;
+    width: 30rem;
+    svg{
+        cursor: pointer;
+    }
 }

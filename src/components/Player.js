@@ -27,6 +27,8 @@ const Player = ({ currentSong,isPlaying,setIsPlaying }) => {
             Math.floor(time / 60) + ":"+("0" + Math.floor(time % 60)).slice(-2)
         );
     }
+
+    //For Slider operations
     const dragHandler = (e) => {
         //update the audio
         audioRef.current.currentTime = e.target.value;

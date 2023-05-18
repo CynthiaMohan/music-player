@@ -36,7 +36,7 @@ function App() {
         timeUpdateHandler={timeUpdateHandler}
         setSongInfo={setSongInfo}
         songInfo={songInfo} />
-      <Library audioRef={ audioRef} songs={songs} setCurrentSong={setCurrentSong} isPlaying={isPlaying} />
+      <Library audioRef={ audioRef} songs={songs} setCurrentSong={setCurrentSong} isPlaying={isPlaying} setSongs={setSongs} />
     </div>
   );
 }

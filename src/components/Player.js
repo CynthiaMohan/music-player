@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useEffect }  from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faAngleLeft, faAngleRight,faPause } from "@fortawesome/free-solid-svg-icons";
 
 
-const Player = ({ currentSong,isPlaying,setIsPlaying,audioRef,timeUpdateHandler,songInfo,setSongInfo,songs,setCurrentSong }) => {
-  
+const Player = ({ setSongs,currentSong,isPlaying,setIsPlaying,audioRef,timeUpdateHandler,songInfo,setSongInfo,songs,setCurrentSong }) => {
+    //UseEffect
+    useEffect(() => {
+        //Add active state
+        const newSongs = songs.map((song) => {
+            if (song.id === currentSong.id) {
+                return { ...song, active: true };
+            }
+            else {
+                return { ...song, active: false };
+            }
+        })
+        setSongs(newSongs);
+    })
     //Event Handlers
     const playSongHandler = () => {
         if (isPlaying) {
@@ -22,18 +34,16 @@ const Player = ({ currentSong,isPlaying,setIsPlaying,audioRef,timeUpdateHandler,
             Math.floor(time / 60) + ":"+("0" + Math.floor(time % 60)).slice(-2)
         );
     }
+
     const skipTrackHandler = (direction) => { 
-      
             let currentIndex = songs.findIndex((song)=>song.id===currentSong.id);
             console.log('curr_Index',currentIndex);
             if (direction === "skip-forward") {
-                //the modulo function keeps the playlist from breaking and keeps the songs in an infinite loop
                 setCurrentSong(songs[(currentIndex + 1)===songs.length?0:currentIndex+1]);
-        }
-        if (direction === "skip-back") {
-            setCurrentSong(songs[(currentIndex - 1) < 0 ? songs.length-1 : currentIndex - 1]);
-        }
-       
+            }
+            if (direction === "skip-back") {
+                setCurrentSong(songs[(currentIndex - 1) < 0 ? songs.length-1 : currentIndex - 1]);
+            }
     }
     
 
@@ -44,7 +54,7 @@ const Player = ({ currentSong,isPlaying,setIsPlaying,audioRef,timeUpdateHandler,
         //update the slider
         setSongInfo({ ...songInfo, currentTime: e.target.value });
     }
- 
+    
 
     return (
         <div className="player">

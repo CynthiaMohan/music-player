@@ -3,8 +3,8 @@ import './styles/app.scss'
 //Adding Components
 import Player from "./components/Player";
 import Song from "./components/Song";
-// Import Util
-import data from './util';
+// Import Data
+import data from './data';
 import { useState,useRef } from 'react';
 import Library from './components/Library';
 import Nav from './components/Nav';

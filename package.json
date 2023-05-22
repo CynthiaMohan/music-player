@@ -2,7 +2,7 @@
   "name": "react-music-player",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://CynthiaMohan.github.io/music-player",
+  "homepage": "http://cynthiamohan.github.io/music-player",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
@@ -22,7 +22,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy" : "npm run build",
-    "deploy" : "gh-pages -d build",
+    "deploy" : "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
